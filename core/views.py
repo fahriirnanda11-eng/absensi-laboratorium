@@ -41,8 +41,8 @@ def qrcode_page(request):
 
 
 def qr_image(request):
-    # Ganti IP ini sesuai IP laptop kamu
-    url = "http://10.241.79.166:8000/"
+    # Otomatis menggunakan alamat website yang sedang dibuka
+    url = request.build_absolute_uri("/")
 
     img = qrcode.make(url)
 
@@ -52,6 +52,4 @@ def qr_image(request):
     return HttpResponse(
         buffer.getvalue(),
         content_type="image/png"
-
-
     )
