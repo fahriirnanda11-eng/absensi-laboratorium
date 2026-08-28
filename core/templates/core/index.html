@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Sistem Absensi Laboratorium</title>
 
@@ -12,172 +12,365 @@
 
 <style>
 
-body{
+/* =========================
+   BODY
+========================= */
 
-background:linear-gradient(135deg,#E8F5E9,#FFFDE7,#F9FBE7);
+body {
+    margin: 0;
+    padding: 20px 12px;
+    min-height: 100vh;
 
-font-family:'Segoe UI',sans-serif;
+    background: linear-gradient(
+        135deg,
+        #e8f5e9,
+        #fffde7,
+        #f1f8e9
+    );
 
-min-height:100vh;
-
-padding:30px;
-
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
-.card{
 
-max-width:750px;
+/* =========================
+   CARD
+========================= */
 
-margin:auto;
+.card {
+    width: 100%;
+    max-width: 680px;
 
-border:none;
+    margin: 0 auto;
 
-border-radius:25px;
+    border: none;
+    border-radius: 24px;
 
-box-shadow:0 15px 35px rgba(0,0,0,.12);
+    background: rgba(255,255,255,0.97);
 
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.10);
 }
 
-.logo{
 
-width:95px;
+/* =========================
+   LOGO
+========================= */
 
-display:block;
+.logo {
+    width: 90px;
+    height: 90px;
 
-margin:auto;
+    object-fit: contain;
 
+    display: block;
+    margin: 0 auto 12px auto;
 }
 
-.judul{
 
-color:#2E7D32;
+/* =========================
+   JUDUL
+========================= */
 
-font-weight:700;
+.judul {
+    color: #2e7d32;
 
-font-size:28px;
+    font-weight: 800;
 
-margin-top:15px;
+    font-size: 27px;
 
-text-transform:uppercase;
+    line-height: 1.25;
 
+    margin-bottom: 10px;
+
+    text-transform: uppercase;
 }
 
-.subjudul{
 
-color:#666;
+/* =========================
+   SUBJUDUL
+========================= */
 
-font-size:17px;
+.subjudul {
+    color: #666;
 
-margin-bottom:10px;
+    font-size: 15px;
 
+    line-height: 1.5;
+
+    margin-bottom: 20px;
 }
 
-.info{
 
-background:#F8FFF8;
+/* =========================
+   INFORMASI WAKTU
+========================= */
 
-border-radius:15px;
+.info {
+    background: linear-gradient(
+        135deg,
+        #f4fff4,
+        #ffffff
+    );
 
-padding:15px;
+    border-radius: 18px;
 
-margin-bottom:25px;
+    padding: 18px 10px;
 
-border:1px solid #DCEFD8;
+    margin-bottom: 25px;
 
+    border: 1px solid #dcefd8;
+
+    box-shadow:
+        0 4px 12px rgba(46,125,50,0.06);
 }
 
-#hari{
 
-color:#2E7D32;
+#hari {
+    color: #2e7d32;
 
-font-weight:bold;
+    font-size: 22px;
 
+    font-weight: 700;
+
+    margin-bottom: 4px;
 }
 
-#tanggal{
 
-font-size:17px;
+#tanggal {
+    color: #555;
 
+    font-size: 15px;
+
+    margin-bottom: 5px;
 }
 
-#jam{
 
-font-size:24px;
+#jam {
+    color: #2e7d32;
 
-font-weight:bold;
+    font-size: 26px;
 
-color:#2E7D32;
+    font-weight: 800;
 
+    margin: 0;
 }
 
-.form-title{
 
-color:#2E7D32;
+/* =========================
+   JUDUL FORM
+========================= */
 
-font-weight:bold;
+.form-title {
+    color: #2e7d32;
 
-margin-bottom:20px;
+    font-size: 20px;
 
+    font-weight: 700;
+
+    margin-bottom: 20px;
 }
 
-label{
 
-font-weight:600;
+/* =========================
+   LABEL
+========================= */
 
-margin-bottom:6px;
+label {
+    display: block;
 
+    font-weight: 600;
+
+    color: #444;
+
+    margin-bottom: 7px;
+
+    font-size: 15px;
 }
 
-.form-control,
-.form-select{
 
-border-radius:12px;
+/* =========================
+   INPUT DJANGO
+========================= */
 
-padding:11px;
+input,
+select,
+textarea {
 
-border:1px solid #CED4DA;
+    width: 100%;
 
+    border-radius: 12px !important;
+
+    border: 1px solid #d5d9d5 !important;
+
+    padding: 12px 14px !important;
+
+    min-height: 48px;
+
+    background-color: #ffffff;
+
+    font-size: 15px;
+
+    transition: 0.2s;
 }
 
-.form-control:focus,
-.form-select:focus{
 
-border-color:#2E7D32;
+input:focus,
+select:focus,
+textarea:focus {
 
-box-shadow:0 0 10px rgba(46,125,50,.25);
+    outline: none;
 
+    border-color: #2e7d32 !important;
+
+    box-shadow:
+        0 0 0 3px rgba(46,125,50,0.12) !important;
 }
 
-.btn-success{
 
-background:#2E7D32;
+/* =========================
+   JARAK FORM
+========================= */
 
-border:none;
-
-border-radius:12px;
-
-padding:12px;
-
-font-size:18px;
-
+.mb-3 {
+    margin-bottom: 18px !important;
 }
 
-.btn-success:hover{
 
-background:#256428;
+/* =========================
+   TOMBOL
+========================= */
 
+.btn-success {
+
+    background: linear-gradient(
+        135deg,
+        #2e7d32,
+        #388e3c
+    );
+
+    border: none;
+
+    border-radius: 13px;
+
+    min-height: 52px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 6px 15px rgba(46,125,50,0.20);
+
+    transition: 0.2s;
 }
 
-.footer{
 
-margin-top:30px;
+.btn-success:hover {
 
-text-align:center;
+    background: #256428;
 
-color:#777;
+    transform: translateY(-1px);
+}
 
-font-size:14px;
 
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+.footer hr {
+
+    margin-bottom: 18px;
+
+    border-color: #e5e5e5;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 576px) {
+
+    body {
+        padding: 10px 8px;
+    }
+
+    .card {
+        border-radius: 20px;
+
+        padding: 20px 16px !important;
+    }
+
+    .logo {
+        width: 78px;
+        height: 78px;
+    }
+
+    .judul {
+        font-size: 21px;
+
+        line-height: 1.3;
+    }
+
+    .subjudul {
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+    .info {
+        padding: 15px 8px;
+
+        margin-bottom: 20px;
+    }
+
+    #hari {
+        font-size: 20px;
+    }
+
+    #tanggal {
+        font-size: 14px;
+    }
+
+    #jam {
+        font-size: 23px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+        min-height: 46px;
+
+        font-size: 15px;
+    }
+
+    .btn-success {
+        font-size: 16px;
+
+        min-height: 50px;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
 }
 
 </style>
@@ -186,197 +379,287 @@ font-size:14px;
 
 <body>
 
-<div class="container">
 
-<div class="card p-4">
+<div class="container-fluid">
 
-<img src="{% static 'img/logo.png' %}" class="logo">
-
-<h3 class="text-center judul">
-Sistem Absensi Laboratorium Komputer
+    <div class="card p-4">
 
 
-</h3>
+        <!-- LOGO -->
 
-<p class="text-center subjudul">
+        <img
+            src="{% static 'img/logo.png' %}"
+            class="logo"
+            alt="Logo UNUSU"
+        >
 
-UNIVERSITAS NAHDLATUL ULAMA SUMATERA UTARA
 
-</p>
+        <!-- JUDUL -->
 
-<div class="info text-center">
+        <h3 class="text-center judul">
+            Sistem Absensi<br>
+            Laboratorium Komputer
+        </h3>
 
-<h5 id="hari"></h5>
 
-<p id="tanggal"></p>
+        <!-- SUBJUDUL -->
 
-<h3 id="jam"></h3>
+        <p class="text-center subjudul">
+            UNIVERSITAS NAHDLATUL ULAMA SUMATERA UTARA
+        </p>
+
+
+        <!-- WAKTU -->
+
+        <div class="info text-center">
+
+            <div id="hari"></div>
+
+            <div id="tanggal"></div>
+
+            <div id="jam"></div>
+
+        </div>
+
+
+        <hr>
+
+
+        <!-- FORM -->
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <!-- MATA KULIAH -->
+
+            <div class="mb-3">
+
+                <label>
+                    📚 Mata Kuliah
+                </label>
+
+                {{ form.mata_kuliah }}
+
+            </div>
+
+
+            <!-- DOSEN -->
+
+            <div class="mb-3">
+
+                <label>
+                    👨‍🏫 Nama Dosen
+                </label>
+
+                {{ form.nama_dosen }}
+
+            </div>
+
+
+            <!-- NIM -->
+
+            <div class="mb-3">
+
+                <label>
+                    🆔 NIM
+                </label>
+
+                {{ form.nim }}
+
+            </div>
+
+
+            <!-- NAMA -->
+
+            <div class="mb-3">
+
+                <label>
+                    👤 Nama Mahasiswa
+                </label>
+
+                {{ form.nama }}
+
+            </div>
+
+
+            <!-- PRODI -->
+
+            <div class="mb-3">
+
+                <label>
+                    🎓 Program Studi
+                </label>
+
+                {{ form.prodi }}
+
+            </div>
+
+
+            <!-- PC -->
+
+            <div class="mb-3">
+
+                <label>
+                    💻 Nomor PC
+                </label>
+
+                {{ form.no_pc }}
+
+            </div>
+
+
+            <!-- JAM -->
+
+            <div class="row">
+
+                <div class="col-6 mb-3">
+
+                    <label>
+                        🕘 Jam Mulai
+                    </label>
+
+                    {{ form.jam_mulai }}
+
+                </div>
+
+
+                <div class="col-6 mb-3">
+
+                    <label>
+                        🕔 Jam Selesai
+                    </label>
+
+                    {{ form.jam_selesai }}
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <div class="d-grid mt-2">
+
+                <button
+                    type="submit"
+                    class="btn btn-success"
+                >
+
+                    💾 Simpan Absensi
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            <hr>
+
+            <b>
+                Universitas Nahdlatul Ulama Sumatera Utara
+            </b>
+
+            <br>
+
+            Laboratorium Komputer
+
+            <br>
+
+            <i>
+                by : Fahri Irnanda
+            </i>
+
+        </div>
+
+
+    </div>
 
 </div>
 
-<hr>
 
-<form method="POST">
-
-{% csrf_token %}
-
-<div class="mb-3">
-
-<label>📚 Mata Kuliah</label>
-
-{{ form.mata_kuliah }}
-
-</div>
-
-<div class="mb-3">
-
-<label>👨‍🏫 Nama Dosen</label>
-
-{{ form.nama_dosen }}
-
-</div>
-
-<div class="mb-3">
-
-<label>🆔 NIM</label>
-
-{{ form.nim }}
-
-</div>
-
-<div class="mb-3">
-
-<label>👤 Nama Mahasiswa</label>
-
-{{ form.nama }}
-
-</div>
-
-<div class="mb-3">
-
-<label>🎓 Program Studi</label>
-
-{{ form.prodi }}
-
-</div>
-
-<div class="mb-3">
-
-<label>💻 Nomor PC</label>
-
-{{ form.no_pc }}
-
-</div>
-
-<div class="row">
-
-<div class="col-md-6 mb-3">
-
-<label>🕘 Jam Mulai</label>
-
-{{ form.jam_mulai }}
-
-</div>
-
-<div class="col-md-6 mb-3">
-
-<label>🕔 Jam Selesai</label>
-
-{{ form.jam_selesai }}
-
-</div>
-
-</div>
-
-<div class="d-grid">
-
-<button class="btn btn-success">
-
-💾 Simpan Absensi
-
-</button>
-
-</div>
-
-</form>
-
-<div class="footer">
-
-<hr>
-
-<b>Universitas Nahdlatul Ulama Sumatera Utara</b>
-
-<br>
-
-Laboratorium Komputer
-
-<br><i>
-by : fahri irnanda
-</i>
-</div>
-
-</div>
-
-</div>
+<!-- =========================
+     JAVASCRIPT JAM
+========================= -->
 
 <script>
 
-const hari=[
-"Minggu",
-"Senin",
-"Selasa",
-"Rabu",
-"Kamis",
-"Jumat",
-"Sabtu"
+const hari = [
+    "Minggu",
+    "Senin",
+    "Selasa",
+    "Rabu",
+    "Kamis",
+    "Jumat",
+    "Sabtu"
 ];
 
-const bulan=[
-"Januari",
-"Februari",
-"Maret",
-"April",
-"Mei",
-"Juni",
-"Juli",
-"Agustus",
-"September",
-"Oktober",
-"November",
-"Desember"
+
+const bulan = [
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
+    "September",
+    "Oktober",
+    "November",
+    "Desember"
 ];
 
-function tampilWaktu(){
 
-let sekarang=new Date();
+function tampilWaktu() {
 
-document.getElementById("hari").innerHTML=
-hari[sekarang.getDay()];
+    let sekarang = new Date();
 
-document.getElementById("tanggal").innerHTML=
-sekarang.getDate()+" "+
-bulan[sekarang.getMonth()]+" "+
-sekarang.getFullYear();
 
-let jam=
-String(sekarang.getHours()).padStart(2,'0');
+    document.getElementById("hari").innerHTML =
+        hari[sekarang.getDay()];
 
-let menit=
-String(sekarang.getMinutes()).padStart(2,'0');
 
-let detik=
-String(sekarang.getSeconds()).padStart(2,'0');
+    document.getElementById("tanggal").innerHTML =
+        sekarang.getDate() + " " +
+        bulan[sekarang.getMonth()] + " " +
+        sekarang.getFullYear();
 
-document.getElementById("jam").innerHTML=
-jam+":"+menit+":"+detik+" WIB";
+
+    let jam =
+        String(sekarang.getHours()).padStart(2, '0');
+
+
+    let menit =
+        String(sekarang.getMinutes()).padStart(2, '0');
+
+
+    let detik =
+        String(sekarang.getSeconds()).padStart(2, '0');
+
+
+    document.getElementById("jam").innerHTML =
+        jam + ":" +
+        menit + ":" +
+        detik +
+        " WIB";
 
 }
 
-setInterval(tampilWaktu,1000);
+
+setInterval(tampilWaktu, 1000);
 
 tampilWaktu();
 
 </script>
+
 
 </body>
 </html>
